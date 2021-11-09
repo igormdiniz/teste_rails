@@ -45,6 +45,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # Use mysql as the database for Active Record
+  gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 end
 
 group :development do

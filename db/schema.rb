@@ -12,21 +12,22 @@
 
 ActiveRecord::Schema.define(version: 2018_08_24_230643) do
 
-  create_table "coins", force: :cascade do |t|
+  create_table "coins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "description"
     t.string "acronym"
     t.string "url_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "mining_type_id"
+    t.bigint "mining_type_id"
     t.index ["mining_type_id"], name: "index_coins_on_mining_type_id"
   end
 
-  create_table "mining_types", force: :cascade do |t|
+  create_table "mining_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "description"
     t.string "acronym"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "coins", "mining_types"
 end
